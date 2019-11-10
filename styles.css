@@ -23,6 +23,14 @@
     text-align: center;
 }
 
+#favBox {
+    background-color: beige;
+    border: solid .25px teal;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
 @media (max-width: 600px) {
     .container {
     display: flex;

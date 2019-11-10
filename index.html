@@ -15,12 +15,10 @@
             <div class='employee'>shep Jr.</div>
             <div class='employee'>lucy</div>
         </div>
-        <div class='favorite'>
-            <p>
-                Favorite: <div></div>
-            </p>
-
+        <div>
+            Favorite: <div id='favBox'></div>
         </div>
+        <div>   </div>
     </body>
     <script>
         const employees = [
@@ -33,36 +31,35 @@
         { id: 8, name: 'shep Jr.'},
         { id: 99, name: 'lucy'}
         ];
-
         const employee = document.getElementsByClassName('employee')
         const emp = [...employee]; // turning the HTML collection into an array
-        const favorites = []
+        const favArr = []
 
 
         emp.forEach((element) => {
-
             element.addEventListener('click', () => {
             // const colorChange = element.style['background-color'] = 'beige'
-            if (element.className.indexOf('favorite') > -1) {
+                if (element.className.indexOf('favorite') > -1) {
+                    const idx = favArr.indexOf()
                     element.classList.remove('favorite')
-                    favorites.pop()
-            }
-            else {
-                if (favorites.length >= 3) {
-                    alert('There is a max of 3 favorites, sorry')
+                    favArr.pop()
                 }
                 else {
-                    element.classList.add('favorite')
-                let name = element.textContent;
+                    if (favArr.length >= 3) {
+                        alert('There is a max of 3 favorites, sorry')
+                    }
+                    else {
+                        element.classList.add('favorite')
+                        let name = element.textContent;
 
-                for (let i = 0; i < employees.length; i++) {
-                    let obj = employees[i];
-                    if (obj.name === name) {
-                        favorites.push(obj.id)
+                        for (let i = 0; i < employees.length; i++) {
+                            let obj = employees[i];
+                            if (obj.name === name) {
+                                favArr.push(obj.id)
+                            }
+                        }
                     }
                 }
-                }
-            }
             })
         })
 
